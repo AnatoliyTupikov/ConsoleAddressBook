@@ -1,9 +1,11 @@
 # Employee Address Book
+- [Description](#description)
 - [Release notes](#release-notes)
 - [Cmdlets Tabel](#cmdlets-tabel)
+- [Work Flow](##work-flow)
 - [Diagram](#diagram)
 ## Description
-Employee Address Book - консольное приложение для сохранения и управления данными о сотрудниках. Взаимодействие с программой проходит посредством ввода комманд.
+Employee Address Book - консольное приложение для сохранения/удаления и отображения данных о сотрудниках. Взаимодействие с программой проходит посредством ввода комманд.
 <br>[Полный список коммандлетов](#cmdlets-tabel)
 ## Release notes
 - Поддерживаются только латинские и спец. символы таблицы ASCII. Это касается как названий коммандлетов/параметров так и самих значений. 
@@ -52,7 +54,7 @@ Employee Address Book - консольное приложение для сох�
 
 ## Work Flow
 
-Схема скомпилированного проекта
+**Схема скомпилированного проекта:**
 ```
 Build/
 ├─ ConsoleAddressBook.exe
@@ -62,7 +64,11 @@ Build/
 │   ├─ supporters.txt
 │   └─ get-help.txt
 ```
-Схема запуска приложения:
+<br>`get-help.txt` - содержит краткую информацию о коммандах, которая выводится непосредственно в консоль.
+<br>`developers.txt`, `sellers.txt`, `get-help.txt` - содержат сериализованные объекты соответствующих классов. 
+<br>  Программа сохраняет данные в формате JSON объектов, с помощью библиотеки [niohmann/json](https://github.com/nlohmann/json?tab=readme-ov-file). 
+<br>
+<br>**Схема запуска приложения:**
 ```mermaid
 flowchart LR
     A[Run App.exe] --> B{Exist files in DataStore/ directory?}
@@ -70,6 +76,26 @@ flowchart LR
     B -- No --> C[Create files: <br>sellers.txt<br>developers.txt<br>supporters.txt<br>offices.txt]
     C --> D[Waiting a commadlet]
 ```
+<br>**Схема выполнения "Add-комманды"**
+```mermaid
+flowchart LR
+    A[**UI**:<br>Requesting a cmdlet] --> B[**Parser**:<br>Parsing the cmdlet] --> C[**CmdLetManager**: <br>Validation of the cmdlet's parameters] --> D[**CmdLetManager**: <br>Excute the cmdlet] --> E[**CmdLetManager**: <br>Adding the record to the corresponding collection of **Book**] -->F[**Serializer**: <br>Serializing to JSON string and writing to the corresponding file]    
+```
 
-Программа сохраняет данные в формате JSON объектов, с помощью библиотеки [niohmann/json](https://github.com/nlohmann/json?tab=readme-ov-file). 
+<br>**Схема выполнения "Remove-комманды"**
+```mermaid
+flowchart LR
+    A[**UI**:<br>Requesting a cmdlet] --> B[**Parser**:<br>Parsing the cmdlet] --> C[**CmdLetManager**: <br>Validation of the cmdlet's parameters] --> D[**CmdLetManager**: <br>Excute the cmdlet] --> E[**CmdLetManager**: <br>Remove the record from the corresponding collection]
+```
+Как можно заметить, сохранение в файл не происходит.
+
+<br>**Схема закрытия программы**
+```mermaid
+flowchart LR
+    A[**UI**:<br>Requesting a cmdlet] --> B[**Parser**:<br>Parsing the cmdlet] --> C[**CmdLetManager**: <br>Validation of the cmdlet's parameters] --> D[**CmdLetManager**: <br>Excute the cmdlet] --> E[**Serializer**: <br>Requesting all collections of all objects] --> F[**Serializer**: <br>Requesting all collections of all objects] --> J[**Serializer**: <br>Serializing the objects to JSON string and writing to the corresponding file]    
+```
+
+
 ## Diagram
+![AppDiagram](Documents/Diagram.png)
+

@@ -1,0 +1,37 @@
+Add-Dev 						add a developer to the table
+	-n <required> 	 				"name" parameter
+	-ln <required> 	 				"last name" parameter
+	-ph <optional def: "-"> 	 		"phone" paramert
+	-phtype <optional def: "mobile"> 		"phone type" parameter
+	-o <optional; def: 0; restrict: int >= 0>	"office" parameter, by office's "id"
+	-plang <optional def: "unknown"> 		"programming language" parameter
+	-lvl <optional def: "not assigned">		"professional level" parameter
+Add-Seller 						add a seller employee to the table
+	-n <required> 	 				"name" parameter
+	-ln <required> 	 				"last name" parameter
+	-ph <optional def: "-"> 	 		"phone" paramert
+	-phtype <optional def: "mobile"> 		"phone type" parameter
+	-o <optional def: 0; restrict: int >= 0>	"office" parameter, by office's "id"
+	-sr <optional def: "not assigned"> 		"saler region" parameter
+	-ps <optional def: "not assigned">		"product speciality" parameter
+Add-Support						add a support employee to the table
+	-n <required> 	 				"name" parameter
+	-ln <required> 	 				"last name" parameter
+	-ph <optional def: "-"> 	 		"phone" paramert
+	-phtype <optional def: "mobile"> 		"phone type" parameter
+	-o <optional def: 0; restrict: int >= 0>	"office" parameter, by office's "id"
+	-sl <optional def: "unknown"> 			"support line" parameter
+Add-Office						add an office to the offices table
+	-n <required> 	 				"name of office" parameter
+	-adr <required> 	 			"address" parameter
+Get-All							shows table of all employees with short info
+Get-Devs						shows table of only developers from employees with detail info
+Get-Sellers						shows table of only sellers from employees with detail info
+Get-Supports						shows table of only support engineers from employees with detail info
+Get-Offices						shows table of offices with offices info
+Get-Help						shows detail information about cmdlets
+Remove-Employee						remove an employee from the table by "id"
+	-id <required; restrict: int >= 0>		"employee id" parameter
+Remove-office						remove an office from the offices table by "id"
+	-id <required; restrict: int >= 0>		"office id" parameter
+Exit							finish the application with saving data

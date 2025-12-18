@@ -27,14 +27,13 @@ std::vector<std::shared_ptr<T>> Deserializer::loadObjs(std::string file_path, st
 				mes += ex.what();
 				errors->push_back(DeserializingError(mes));
 			}
-
 		}
 	}
 	return res;
 }
 
 template <WorkerDerived T>
-void Deserializer::loadWorkersToBook(std::string file_path, std::function<std::shared_ptr<T>(const nlohmann::json&)> deserFunc, std::vector<DeserializingError>* errors)
+void Deserializer::loadWorkersToBook(const std::string file_path, std::function<std::shared_ptr<T>(const nlohmann::json&)> deserFunc, std::vector<DeserializingError>* errors)
 {
 
 	auto book = Book::getInstance();
@@ -45,7 +44,7 @@ void Deserializer::loadWorkersToBook(std::string file_path, std::function<std::s
 	}
 }
 
-void Deserializer::loadOfficesToBook(std::string file_path, std::function<std::shared_ptr<Office>(const nlohmann::json&)> deserFunc, std::vector<DeserializingError>* errors)
+void Deserializer::loadOfficesToBook(const std::string file_path, std::function<std::shared_ptr<Office>(const nlohmann::json&)> deserFunc, std::vector<DeserializingError>* errors)
 {
 
 	auto book = Book::getInstance();
@@ -102,3 +101,4 @@ std::shared_ptr<T> deserEmploeeFunc(const nlohmann::json& j)
 	auto emploee = T::Builder(j, off).build();
 	return std::shared_ptr<T>(emploee);
 };
+

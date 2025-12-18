@@ -7,7 +7,7 @@ namespace CmdletLogic
 
 	std::shared_ptr<Office> getOfficeFromStr(std::string str_id)
 	{
-		std::string mes = std::format("\"{}\" is wrong value for office's ID (\"-o\" parameter). It must be integer > 0.\n", str_id);
+		std::string mes = std::format("\"{}\" is wrong value for office's ID (\"-o\" parameter). It must be integer > 0.", str_id);
 		unsigned long id = ParserCmdlet::idFromString(str_id, mes);
 
 		if (id == 0) return nullptr;
@@ -16,7 +16,7 @@ namespace CmdletLogic
 		auto off_ptr = book->getOffice(id);
 		if (!off_ptr)
 		{
-			std::string mes = std::format("There is no the office with ID = \"{}\".\n", id);
+			std::string mes = std::format("There is no the office with ID = \"{}\".", id);
 			throw CommandError(mes);
 		}
 		return off_ptr;
@@ -39,7 +39,7 @@ namespace CmdletLogic
 		saver->saveAddObj<Seller>(new_seller, Seller::Path,
 			[](const Seller& obj, nlohmann::json& j) {j = obj; });
 
-		std::string mes = std::format("The seller with Id = \"{}\" was added.\n", new_seller->getId());
+		std::string mes = std::format("The seller with Id = \"{}\" was added.", new_seller->getId());
 		ConsoleInterface::showMessage(mes);
 
 	}
@@ -61,7 +61,7 @@ namespace CmdletLogic
 		saver->saveAddObj<Developer>(new_developer, Developer::Path,
 			[](const Developer& obj, nlohmann::json& j) {j = obj; });
 
-		std::string mes = std::format("The developer with Id = \"{}\" was added.\n", new_developer->getId());
+		std::string mes = std::format("The developer with Id = \"{}\" was added.", new_developer->getId());
 		ConsoleInterface::showMessage(mes);
 	};
 	void add_support_handler(const std::map<std::string, std::string>& params)
@@ -79,22 +79,22 @@ namespace CmdletLogic
 		saver->saveAddObj<Supporter>(new_supporter, Supporter::Path,
 			[](const Supporter& obj, nlohmann::json& j) {j = obj; });
 
-		std::string mes = std::format("The supporter with Id = \"{}\" was added.\n", new_supporter->getId());
+		std::string mes = std::format("The supporter with Id = \"{}\" was added.", new_supporter->getId());
 		ConsoleInterface::showMessage(mes);
 	};
 	void remove_employee_handler(const std::map<std::string, std::string>& params)
 	{
 		auto str_id = params.at("id");
-		std::string mes = std::format("\"{}\" is wrong value for emploee's ID (\"-id\" parameter). It must be integer > 0.\n", str_id);
+		std::string mes = std::format("\"{}\" is wrong value for emploee's ID (\"-id\" parameter). It must be integer > 0.", str_id);
 		unsigned long id = ParserCmdlet::idFromString(str_id, mes);
 		
 		if (!book->removeWorker(id))
 		{
-			std::string mes = std::format("There is no the emploee with ID = \"{}\".\n", id);
+			std::string mes = std::format("There is no the emploee with ID = \"{}\".", id);
 			throw CommandError(mes);
 		}		
 
-		mes = std::format("The emploee with Id = \"{}\" was removed.\n", str_id);
+		mes = std::format("The emploee with Id = \"{}\" was removed.", str_id);
 		ConsoleInterface::showMessage(mes);
 	};
 
@@ -114,22 +114,34 @@ namespace CmdletLogic
 	void remove_office_handler(const std::map<std::string, std::string>& params)
 	{
 		auto str_id = params.at("id");
-		std::string mes = std::format("\"{}\" is wrong value for office's ID (\"-id\" parameter). It must be integer > 0.\n", str_id);
+		std::string mes = std::format("\"{}\" is wrong value for office's ID (\"-id\" parameter). It must be integer > 0.", str_id);
 		unsigned long id = ParserCmdlet::idFromString(str_id, mes);
 		
 		if (!book->removeOffice(id))
 		{
-			mes = std::format("There is no the office with ID = \"{}\".\n", id);
+			mes = std::format("There is no the office with ID = \"{}\".", id);
 			throw CommandError(mes);
 		}
 
-		mes = std::format("The office with Id = \"{}\" was removed.\n", str_id);
+		mes = std::format("The office with Id = \"{}\" was removed.", str_id);
 		ConsoleInterface::showMessage(mes);
 	};
 
 	void get_help_handler(const std::map<std::string, std::string>& params)
 	{
-		ConsoleInterface::showMessage("Help!");
+		std::string path = "DataStore/get-help.txt";
+		std::ifstream fin;
+		std::string line;
+		fin.open(path);
+		if (!fin)
+		{
+			std::string mes = std::format("Unable to load \"{}\" file.", path);
+			throw CommandError(mes);
+		}
+		while (std::getline(fin, line))
+		{
+			ConsoleInterface::showMessage(line);
+		}
 	};
 
 	void get_all_handler(const std::map<std::string, std::string>& params)

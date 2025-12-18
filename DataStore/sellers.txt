@@ -1,3 +1,2 @@
 {"id":2,"last_name":"Egorov","name":"Alex","office":0,"phone":"+79111787113","phone_type":"Cell","position":"Seller","product_specialty":"Veeam Console","sales_region":"Russia"}
 {"id":4,"last_name":"Munk","name":"Evg","office":0,"phone":"+79111787113","phone_type":"Cell","position":"Seller","product_specialty":"Veeam Console","sales_region":"Russia"}
-{"id":12,"last_name":"Egorov","name":"Alex","office":3,"phone":"+79111787113","phone_type":"Cell","position":"Seller","product_specialty":"Veeam Console","sales_region":"Russia"}

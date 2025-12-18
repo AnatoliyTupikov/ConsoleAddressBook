@@ -63,7 +63,7 @@ Cmdlet ManagerCmdlet::buildCmdletStruct(const pair_cmdlet cmdlet_pair)
 			auto it = income_params.find(form_parameter_name);
 			if (it == income_params.cend())
 			{
-				if (form_parameter_val.empty()) error_mes += std::format("\"{}\" parameter for \"{}\" commandlet is required. But isn't specified! \n", form_param.first, cmdlet_pair.first);
+				if (form_parameter_val.empty()) error_mes += std::format("\"{}\" parameter for \"{}\" commandlet is required. But isn't specified!", form_param.first, cmdlet_pair.first);
 				continue;
 			}
 			form_param.second = it->second;
@@ -76,7 +76,7 @@ Cmdlet ManagerCmdlet::buildCmdletStruct(const pair_cmdlet cmdlet_pair)
 	{
 		for(auto excess_param : income_params)
 		{
-			error_mes += std::format("\"{}\" commandlet doesn't have \"{}\" parameter.\n", cmdlet_pair.first, excess_param.first);
+			error_mes += std::format("\"{}\" commandlet doesn't have \"{}\" parameter.", cmdlet_pair.first, excess_param.first);
 		}		
 	}
 

@@ -75,7 +75,7 @@ class ManagerCmdlet
 			"add-dev",
 			{
 				{base_params_ident,""},
-				{"pl","unknown"},
+				{"plang","unknown"},
 				{"lvl","unknown"}
 			},
 			CmdletLogic::add_dev_handler
@@ -84,7 +84,7 @@ class ManagerCmdlet
 		{ "add-support",
 		Cmdlet
 		{
-			"add-supprt",
+			"add-suppоrt",
 			{
 				{base_params_ident,""},
 				{"sl","unknown"}	

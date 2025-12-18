@@ -36,7 +36,7 @@ std::string ParserCmdlet::toLowerOneWord(std::string source)
 
 unsigned long ParserCmdlet::idFromString(std::string str_id, std::string err_mes)
 {
-	if(err_mes.empty()) err_mes = std::format("\"{}\" is wrong value for ID. It must be integer > 0.\n", str_id);	
+	if(err_mes.empty()) err_mes = std::format("\"{}\" is wrong value for ID. It must be integer > 0.", str_id);	
 	
 	unsigned long id = 0;
 	try {

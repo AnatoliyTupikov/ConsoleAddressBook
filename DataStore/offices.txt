@@ -1,0 +1,4 @@
+{"address":"c.Praha, Karl Marx str., b.21, Czech rep.","id":4,"name":"Beer"}
+{"address":"c.Berlin, Spitelmarkt str. b. 3, Germany","id":1,"name":"Brezel"}
+{"address":"c.Erevan, Hachaturyan str., b.21, Armenia","id":3,"name":"Halva Mount"}
+{"address":"c.Erevan, Hachaturyan str., b.21, Armenia","id":5,"name":"Halva Mount"}

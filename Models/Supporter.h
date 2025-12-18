@@ -1,40 +1,63 @@
 #pragma once
 #include "Worker.h"
+#include <string>
 class Supporter : public Worker
 {
-	std::string support_line = "Unknown";
 	
-	Supporter(const Supporter::Builder b) : Worker(b) {}
+	std::string support_line = "Unknown";
+
+	class Builder;
+	Supporter(const Supporter::Builder& b) : Worker(b) 
+	{
+		support_line = b.support_line;
+	}
+
 public:
+
+	const static inline std::string Path = "DataStore/supporters.txt";
+
 	class Builder : public Worker::Builder
 	{
-		std::shared_ptr<Supporter> supporter;
+		std::string support_line = "Unknown";
+		
 	public:
 		Builder(std::string name, std::string last_name) : Worker::Builder(name, last_name)
 		{
 			setPosition("Support");
-			Supporter* temp_ptr = new Supporter(*this);
-			supporter = std::shared_ptr<Supporter>(temp_ptr);
+			
+		}
+		Builder(const nlohmann::json& j, std::shared_ptr<Office> off = nullptr) : Worker::Builder(j, off)
+		{
+			try
+			{
+				support_line = j.at("support_line");				
+			}
+			catch (nlohmann::json::out_of_range ex)
+			{
+				std::string mess = fromJsonError;
+				mess += "\n";
+				mess += ex.what();
+				throw DeserializingError(mess);
+			}
 		}
 		~Builder() {};
 		Builder& reset(std::string name, std::string last_name) override
 		{
 			Worker::Builder::reset(name, last_name);
-			Supporter* temp_ptr = new Supporter(*this);
-			supporter = std::shared_ptr<Supporter>(temp_ptr);
+			support_line = "Unknown";
 			return *this;
 		}
 		Builder& setSupportLine(std::string line)
 		{
-			supporter->support_line = line;
+			support_line = line;
 			return *this;
 		}		
 		std::shared_ptr<Supporter> build()
 		{
-			auto temp = supporter;
+			
 			Supporter* temp_ptr = new Supporter(*this);
-			supporter = std::shared_ptr<Supporter>(temp_ptr);
-			return temp;
+			auto res = std::shared_ptr<Supporter>(temp_ptr);
+			return res;
 		}
 		Builder& setPhone(std::string Phone, std::string Type = "Unknown") override
 		{
@@ -47,9 +70,7 @@ public:
 			return *this;
 		}
 		friend class Supporter;
-	};
-
-	friend class Builder;
+	};	
 
 	void toJSON(nlohmann::json& j) const override
 	{
@@ -73,7 +94,7 @@ public:
 		return info;
 	}
 
-	std::vector<std::string> getColums() const override
+	static std::vector<std::string> getColums()
 	{
 		return { " Name ", " Last Name ", " Phone ", " Phone Type ", " Position ", " Support Line ", " Office Name ", " Office Address ", " ID " };
 	}

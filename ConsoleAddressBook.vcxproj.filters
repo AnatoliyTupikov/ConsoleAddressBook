@@ -13,54 +13,123 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{2e699761-576e-45b8-8849-d69ea16e5cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data">
+      <UniqueIdentifier>{62b1629c-dab2-46e2-86f7-589a912edd01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interface">
+      <UniqueIdentifier>{eafc2bda-4e1a-44b7-9c0c-e03e2dd8456e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models\Headers">
+      <UniqueIdentifier>{ef09ec0e-8aa3-4241-bbf5-f97b7bb90f12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interface\Headers">
+      <UniqueIdentifier>{68a54bd9-42ba-4ed6-a467-9eb3068a27da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cmdlets">
+      <UniqueIdentifier>{a1347c6e-5520-44e2-a44d-87da35cc87ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exceps">
+      <UniqueIdentifier>{8d5ae343-d7f0-4fd7-a470-9465c745d1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cmdlets\Headers">
+      <UniqueIdentifier>{aa93a2eb-c46c-40be-83e3-0ea7cc5cb880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data\Headers">
+      <UniqueIdentifier>{7fd21b6c-a515-4177-85e2-cd92c184cd5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Telephone.h">
+    <ClInclude Include="Models\Developer.h">
+      <Filter>Source Files\Models\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Office.h">
+      <Filter>Source Files\Models\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Seller.h">
+      <Filter>Source Files\Models\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Supporter.h">
+      <Filter>Source Files\Models\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Telephone.h">
+      <Filter>Source Files\Models\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Worker.h">
+      <Filter>Source Files\Models\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\ParserCmdlet.h">
+      <Filter>Source Files\Interface\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\ConsoleInterface.h">
+      <Filter>Source Files\Interface\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Exceps\CommandError.h">
+      <Filter>Source Files\Exceps</Filter>
     </ClInclude>
-    <ClInclude Include="Worker.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Exceps\DeserializingError.h">
+      <Filter>Source Files\Exceps</Filter>
     </ClInclude>
-    <ClInclude Include="Serializer.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Models\All.h">
+      <Filter>Source Files\Models\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Supporter.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="CmdLet\Cmdlet.h">
+      <Filter>Source Files\Cmdlets\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Seller.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="CmdLet\ManagerCmdlet.h">
+      <Filter>Source Files\Cmdlets\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Parser.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Data\Book.h">
+      <Filter>Source Files\Data\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Office.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Data\Deserializer.h">
+      <Filter>Source Files\Data\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Deserializer.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Data\Serializer.h">
+      <Filter>Source Files\Data\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Developer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ManagerCmdlet.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandError.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Book.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Data\All.h">
+      <Filter>Source Files\Data\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ManagerCmdlet.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Models\Worker.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface\ParserCmdlet.cpp">
+      <Filter>Source Files\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface\ConsoleInterface.cpp">
+      <Filter>Source Files\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLet\CmdletLogic.cpp">
+      <Filter>Source Files\Cmdlets</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLet\ManagerCmdlet.cpp">
+      <Filter>Source Files\Cmdlets</Filter>
+    </ClCompile>
+    <ClCompile Include="Data\Book.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Data\Deserializer.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\Developer.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\Office.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\Seller.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

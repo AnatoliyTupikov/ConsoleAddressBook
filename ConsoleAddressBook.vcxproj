@@ -19,23 +19,37 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Book.h" />
-    <ClInclude Include="CommandError.h" />
-    <ClInclude Include="Deserializer.h" />
-    <ClInclude Include="Developer.h" />
-    <ClInclude Include="ManagerCmdlet.h" />
-    <ClInclude Include="Office.h" />
-    <ClInclude Include="Parser.h" />
-    <ClInclude Include="Seller.h" />
-    <ClInclude Include="Serializer.h" />
-    <ClInclude Include="Supporter.h" />
-    <ClInclude Include="Telephone.h" />
-    <ClInclude Include="UI.h" />
-    <ClInclude Include="Worker.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="CmdLet\Cmdlet.h" />
+    <ClInclude Include="CmdLet\ManagerCmdlet.h" />
+    <ClInclude Include="Data\All.h" />
+    <ClInclude Include="Data\Book.h" />
+    <ClInclude Include="Data\Deserializer.h" />
+    <ClInclude Include="Data\Serializer.h" />
+    <ClInclude Include="Exceps\CommandError.h" />
+    <ClInclude Include="Exceps\DeserializingError.h" />
+    <ClInclude Include="Interface\ParserCmdlet.h" />
+    <ClInclude Include="Interface\ConsoleInterface.h" />
+    <ClInclude Include="Models\All.h" />
+    <ClInclude Include="Models\Developer.h" />
+    <ClInclude Include="Models\Office.h" />
+    <ClInclude Include="Models\Seller.h" />
+    <ClInclude Include="Models\Supporter.h" />
+    <ClInclude Include="Models\Telephone.h" />
+    <ClInclude Include="Models\Worker.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CmdLet\CmdletLogic.cpp" />
+    <ClCompile Include="CmdLet\ManagerCmdlet.cpp" />
+    <ClCompile Include="Data\Book.cpp" />
+    <ClCompile Include="Data\Deserializer.cpp" />
+    <ClCompile Include="Interface\ParserCmdlet.cpp" />
+    <ClCompile Include="Interface\ConsoleInterface.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ManagerCmdlet.cpp" />
+    <ClCompile Include="Models\Developer.cpp" />
+    <ClCompile Include="Models\Office.cpp" />
+    <ClCompile Include="Models\Seller.cpp" />
+    <ClCompile Include="Models\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

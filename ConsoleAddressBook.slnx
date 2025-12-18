@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="ConsoleAddressBook.vcxproj" />
+  <Project Path="ConsoleAddressBook.vcxproj" Id="a15da1da-9833-4abc-992e-7282598c925f" />
 </Solution>

@@ -1,29 +1,16 @@
 #pragma once
-#include <string>
-#include <map>
-#include<utility>
-#include<sstream>
-#include"CommandError.h"
+#include "ParserCmdlet.h"
 
-class ParserСmdlet
-{
-public:
-	ParserСmdlet();
-	~ParserСmdlet();
-	std::string toLower(const std::string& s);
-	std::pair<std::string, std::map<std::string, std::string>> Parse(const std::string str);
-	
-};
 
-ParserСmdlet::ParserСmdlet()
+ParserCmdlet::ParserCmdlet()
 {
 }
 
-ParserСmdlet::~ParserСmdlet()
+ParserCmdlet::~ParserCmdlet()
 {
 }
 
-std::string ParserСmdlet::toLower(const std::string& s) {
+std::string ParserCmdlet::toLower(const std::string& s) {
 	std::string result = s;
 
 	std::transform(result.begin(), result.end(), result.begin(),
@@ -33,7 +20,33 @@ std::string ParserСmdlet::toLower(const std::string& s) {
 
 	return result;
 }
-std::pair<std::string, std::map<std::string, std::string>> ParserСmdlet::Parse(const std::string str)
+
+std::string ParserCmdlet::toLowerOneWord(std::string source)
+{
+	source = ParserCmdlet::toLower(source);
+	std::stringstream ss(source);
+	source = "";
+	std::string temp;
+	while (ss >> temp)
+	{
+		source += temp;
+	}
+	return source;
+}
+
+unsigned long ParserCmdlet::idFromString(std::string str_id, std::string err_mes)
+{
+	if(err_mes.empty()) err_mes = std::format("\"{}\" is wrong value for ID. It must be integer > 0.\n", str_id);	
+	
+	unsigned long id = 0;
+	try {
+		id = std::stoul(str_id);
+	}
+	catch (const std::invalid_argument& e) { throw CommandError(err_mes); }
+	return id;
+}
+
+std::pair<std::string, std::map<std::string, std::string>> ParserCmdlet::Parse(const std::string str)
 {
 	if (str.empty()) throw std::invalid_argument("It's impossible to parse empty string!");
 	std::pair<std::string, std::map<std::string, std::string>> res;
@@ -83,7 +96,7 @@ std::pair<std::string, std::map<std::string, std::string>> ParserСmdlet::Parse(
 		if (temp[0] == '"')
 		{
 			ss.seekg(-((long)temp.size() - 1), std::ios::cur);
-			std::string par_value;			
+			std::string par_value;
 			char c;
 			bool isBroken = false;
 			while (ss.get(c))

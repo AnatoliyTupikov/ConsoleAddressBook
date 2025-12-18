@@ -1,0 +1,11 @@
+Add-Dev -n Anton -ln Rubel -ph "123-552" -phtype Home -o 2 -pl "C#" -lvl "Dev II"
+Add-Dev -n Mark -ln Henritch -ph "123-552" -o 4 -pl "C++" -lvl "Exp"
+
+
+
+Add-Dev -n Evg -ln Munk -ph "+79111787113" -phtype Cell -o 1 -sr Russia -ps "Veeam Console"
+Add-Seller -n Alex -ln Egorov -ph "+79111787113" -phtype Cell -o 2 -sr Russia -ps "Veeam Console"
+
+Add-Support -n Ivan -ln Kochasov -ph +78221221 -o 1 -sl Front
+
+Add-Office -n "Beer" -adr "c.Praha, Karl Marx str., b.21, Czech rep."

@@ -1,0 +1,3 @@
+{"id":1,"last_name":"Rubel","level":"Dev II","name":"Anton","office":0,"phone":"123-552","phone_type":"Home","position":"Developer","programming_language":"C#"}
+{"id":6,"last_name":"Henritch","level":"Exp","name":"Mark","office":4,"phone":"123-552","phone_type":"mobile","position":"Developer","programming_language":"C++"}
+{"id":10,"last_name":"Rubel","level":"Dev II","name":"Anton","office":3,"phone":"123-552","phone_type":"Home","position":"Developer","programming_language":"C#"}

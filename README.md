@@ -2,7 +2,7 @@
 - [Description](#description)
 - [Release notes](#release-notes)
 - [Cmdlets Tabel](#cmdlets-tabel)
-- [Work Flow](##work-flow)
+- [Work Flow](#work-flow)
 - [Diagram](#diagram)
 ## Description
 Employee Address Book - консольное приложение для сохранения/удаления и отображения данных о сотрудниках. Взаимодействие с программой проходит посредством ввода комманд.

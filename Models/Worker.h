@@ -37,12 +37,13 @@ protected:
         virtual Builder& setPhone(std::string Phone, std::string Type = "Unknown");
         virtual Builder& setOffice(std::shared_ptr<Office> off);
         const std::string fromJsonError = "Wrong parsed Data from the file, the parameter is missing";
+        Builder(std::string name, std::string last_name);
+        Builder(const nlohmann::json& j, std::shared_ptr<Office> off = nullptr);
+        ~Builder() {};
         
     public:
         friend class Worker;
-        Builder(std::string name, std::string last_name);
-        Builder(const nlohmann::json& j, std::shared_ptr<Office> off = nullptr);
-        ~Builder() {};   
+          
     };
     //Builder clas end===================
 
